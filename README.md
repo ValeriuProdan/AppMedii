@@ -8,3 +8,6 @@ m[i] = ith grade
 t = teza grade ( teza is one special exam, taken at the end of the semester)
 
 GPA = Round  (((m[1] + .. + m[n]) /n * 3 + t ) / 4) 
+
+Some courses dont have "teza" so the formula is:
+GPA = Round  ((m[1] + .. + m[n]) /n) 
