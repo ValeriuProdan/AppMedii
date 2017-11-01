@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             //converting the grades in the boxes that are not empty, calculating the sum of the grades, and finding the lowest
-            //grade(minim)
+            //grade(minim)  
             Sugestii.Text = "";
             double n=0,a,s=0,t,m; 
             int minim=10;
