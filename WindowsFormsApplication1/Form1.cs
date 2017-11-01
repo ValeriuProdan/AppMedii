@@ -19,10 +19,8 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //double n ,i,t;
-            //n = Convert.ToDouble(Nota1.Text); i = Convert.ToDouble(Nota2.Text);t=Convert.ToDouble(Teza.Text) ; 
-            //label1.Text = Convert.ToString(Math.Round( (n/i*3+t)/4, MidpointRounding.AwayFromZero));
-
+            //converting the grades in the boxes that are not empty, calculating the sum of the grades, and finding the lowest
+            //grade(minim)
             Sugestii.Text = "";
             double n=0,a,s=0,t,m; 
             int minim=10;
@@ -35,11 +33,16 @@ namespace WindowsFormsApplication1
             if (Nota7.Text != "") { n++; a = Convert.ToDouble(Nota7.Text); s = s + a; if (a < minim) minim = Convert.ToInt32(a); }
             if (Nota8.Text != "") { n++; a = Convert.ToDouble(Nota8.Text); s = s + a; if (a < minim) minim = Convert.ToInt32(a); }
 
+            //depending on whether the course has "teza" or not 
             if (Teza.Text != "" )
-            {
+            {   
+                //converting teza grade
                 t = Convert.ToDouble(Teza.Text);
+                //apply formula
                 m = Math.Round((s / n * 3 + t) / 4, MidpointRounding.AwayFromZero);
+
                 double m3=m;
+                //if the student takes one more grade
                 for (int i = minim; i <= 10; i++)
                 {
                     double m2;
@@ -50,6 +53,8 @@ namespace WindowsFormsApplication1
                         m3 = m2;
                     }
                 }
+
+                //if the student takes 2 more grades
                 for (int i = minim; i <= 10; i++)
                     for (int j =i ; j <= 10; j++)
                     {
@@ -61,6 +66,8 @@ namespace WindowsFormsApplication1
                             m3 = m2;
                         }
                     }
+
+                //if the student takes 3 more grades
                 for (int i = minim; i <= 10; i++)
                     for (int j =i ; j <= 10; j++)
                         for (int k =j ; k <= 10; k++)
@@ -76,8 +83,11 @@ namespace WindowsFormsApplication1
             }
             else
             {
+                //apply formula
                 m = Math.Round(s / n , MidpointRounding.AwayFromZero);
                 double m3 = m;
+
+                //if the student takes one more grade
                 for (int i = minim; i <= 10; i++)
                 {
                     double m2;
@@ -88,6 +98,8 @@ namespace WindowsFormsApplication1
                         m3 = m2;
                     }
                 }
+
+                //if the student takes 2 more grades
                 for (int i = minim; i <= 10; i++)
                     for (int j = i; j <= 10; j++)
                     {
@@ -99,6 +111,8 @@ namespace WindowsFormsApplication1
                             m3 = m2;
                         }
                     }
+
+                //if the student takes 3 more grades
                 for (int i = minim; i <= 10; i++)
                     for (int j = i; j <= 10; j++)
                         for (int k = j; k <= 10; k++)
@@ -114,8 +128,6 @@ namespace WindowsFormsApplication1
             }
             Medie.Text = Convert.ToString(m);
             
-            //decimal n; n = 30.5m;
-            //label1.Text = "sdfsdfs df" + '\n' + "sdfgdf";//Convert.ToString(Math.Round(34.5,MidpointRounding.AwayFromZero));
 
         }
 
